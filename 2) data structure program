@@ -1,0 +1,72 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, data):
+        new_node = Node(data)
+        if self.head == None:
+            self.head = new_node
+        else:
+            temp = self.head
+            while temp.next != None:
+                temp = temp.next
+            temp.next = new_node
+        print("Element inserted successfully.")
+
+    def delete(self, data):
+        temp = self.head
+        prev = None
+        
+        while temp != None:
+            if temp.data == data:
+                if prev == None:
+                    self.head = temp.next
+                else:
+                    prev.next = temp.next
+                print("Element deleted successfully.")
+                return
+            prev = temp
+            temp = temp.next
+            
+        print("Element not found in the list.")
+
+    def display(self):
+        if self.head == None:
+            print("List is empty.")
+        else:
+            temp = self.head
+            print("Elements in the list are:")
+            while temp != None:
+                print(temp.data)
+                temp = temp.next
+
+# Main Program Loop
+ll = LinkedList()
+
+while True:
+    print("\n--- List ADT using Linked List ---")
+    print("1. Insert")
+    print("2. Delete")
+    print("3. Display")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        element = input("Enter element to insert: ")
+        ll.insert(element)
+    elif choice == '2':
+        element = input("Enter element to delete: ")
+        ll.delete(element)
+    elif choice == '3':
+        ll.display()
+    elif choice == '4':
+        print("Exiting program.")
+        break
+    else:
+        print("Invalid choice. Try again.")
