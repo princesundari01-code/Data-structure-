@@ -1,0 +1,31 @@
+# Initialize the array and get user input
+arr = [10, 20, 30, 40, 50]
+key = int(input("Enter element to search: "))
+
+# --- Linear Search Implementation ---
+for i in range(len(arr)):
+    if arr[i] == key:
+        print("Linear Search: Found at position", i)
+        break
+else:
+    print("Linear Search: Not found")
+
+# --- Binary Search Implementation ---
+low = 0
+high = len(arr) - 1
+found = False
+
+while low <= high:
+    mid = (low + high) // 2
+    
+    if arr[mid] == key:
+        print("Binary Search: Found at position", mid)
+        found = True
+        break
+    elif key < arr[mid]:
+        high = mid - 1
+    else:
+        low = mid + 1
+
+if not found:
+    print("Binary Search: Not found")
