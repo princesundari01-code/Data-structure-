@@ -1,0 +1,27 @@
+arr = []
+
+n = input("Enter number of element: ")
+n = int(n)
+
+for i in range(n):
+    val = input("Enter element: ")
+    arr.append(val)
+
+print("List after insertion:", arr)
+
+d = input("Enter element to delete: ")
+
+if d in arr:
+    arr.remove(d)
+    print("Element delete")
+else:
+    print("Element not found")
+
+print("List after deletion:", arr)
+
+s = input("Enter element to search: ")
+
+if s in arr:
+    print("Element found in the list")
+else:
+    print("Element not found in the list")
