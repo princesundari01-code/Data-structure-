@@ -1,0 +1,29 @@
+7 oneProgram 7
+graph = {
+    1: [2, 3],
+    2: [4],
+    3: [4],
+    4: []
+}
+
+def bfs(start):
+    visited = set()
+    queue = [start]
+    while queue:
+        v = queue.pop(0)
+        if v not in visited:
+            print(v, end=" ")
+            visited.add(v)
+            queue.extend(graph[v])
+
+def dfs(start, visited=set()):
+    visited.add(start)
+    print(start, end=" ")
+    for i in graph[start]:
+        if i not in visited:
+            dfs(i, visited)
+
+print("BFS:")
+bfs(1)
+print("\nDFS:") 
+dfs(1)
